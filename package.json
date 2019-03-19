@@ -1,0 +1,39 @@
+{
+  "name": "cordova",
+  "description": "A Vue.js project",
+  "version": "1.0.0",
+  "author": "kanat",
+  "license": "ISC",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "start": "node server/server.js"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-stage-3": "^6.24.1",
+    "cordova-android": "^7.0.0",
+    "cordova-browser": "^5.0.4",
+    "cordova-plugin-whitelist": "^1.3.3",
+    "cross-env": "^5.0.5",
+    "css-loader": "^0.28.7",
+    "file-loader": "^1.1.4",
+    "socket.io": "^2.2.0",
+    "socket.io-client": "^2.2.0",
+    "vue": "^2.5.11",
+    "vue-loader": "^13.0.5",
+    "vue-resource": "^1.5.1",
+    "vue-router": "^3.0.1",
+    "vue-template-compiler": "^2.4.4",
+    "vuelidate": "^0.7.4",
+    "vuetify": "^1.3.3",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.9.1"
+  }
+}

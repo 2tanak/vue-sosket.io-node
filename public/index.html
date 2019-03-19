@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   
+   
+</head>
+<body>
+
+<div id="app">
+<grafik></grafik>
+
+</div>
+
+<script src="https://www.google.com/jsapi"></script>
+<script>
+google.load('visualization', '1.0', {'packages':['corechart']});
+google.setOnLoadCallback(drawChart);
+</script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src='/socket.io/socket.io.js'></script>
+<script>
+var socket=io.connect('http://localhost:3000');
+Vue.component('grafik', {
+  template: `<div id="chart_div"></div>`
+})
+new Vue({
+  el: '#app',
+   data:function () {
+    return {
+     
+    }
+  },
+  methods: {
+    view: function(e) {
+		
+		socket.on('hello',function(data){
+        var data = new google.visualization.DataTable(data.hello);
+		var options = {
+		'title':'Кол-во населения',
+		'width':650,
+		'height':350,
+		'backgroundColor': {
+			'strokeWidth': 2
+		}
+	};
+		
+	var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+	chart.draw(data, options);
+		
+        })
+		
+  }
+},
+mounted(){
+	this.view();
+  }
+})
+</script>
+</body>
+</html>
